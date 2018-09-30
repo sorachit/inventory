@@ -25,6 +25,4 @@ http://localhost:8080/inventory/index.html
 user=admin
 pass=admin123
 
-```
 ![alt text](readme.img/deploy.gif)
-```
