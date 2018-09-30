@@ -62,4 +62,16 @@ public class InventoryApi {
 		inv.delete(inventory);
 		return builder.status(Response.Status.OK).encoding("utf-8").build();
 	}
+	
+	
+	@POST
+	@Produces(MediaType.APPLICATION_OCTET_STREAM)
+	@Consumes(MediaType.APPLICATION_JSON + ";charset=utf-8")
+	@Path("/print")
+	public Response print(Inventory inventory) throws Exception {
+		InventoryBusiness inv = new InventoryBusiness();
+		ResponseBuilder builder = Response.ok(inv.print(inventory));
+		builder.header("Content-Type", "text/plain");
+		return builder.build();
+	}
 }

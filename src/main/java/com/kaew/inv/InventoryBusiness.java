@@ -1,5 +1,11 @@
 package com.kaew.inv;
 
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
+import java.io.ByteArrayInputStream;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -113,7 +119,7 @@ public class InventoryBusiness {
 		boolean hasId = inv.getId() != null && !"".equals(inv.getId());
 		if (!hasId) {
 			throw new Exception("id must not be null");
-		} 
+		}
 		StringBuffer sql = new StringBuffer();
 		sql.append("delete from inv_inventory where id = ?");
 		DataSource ds = getDataSource();
@@ -130,5 +136,18 @@ public class InventoryBusiness {
 			con.close();
 			ps.close();
 		}
+	}
+
+	public InputStream print(Inventory inventory) throws Exception {
+		StringBuffer result = new StringBuffer();
+		List<Inventory> list = query(inventory);
+		for (Inventory inv : list) {
+			result.append(
+					inv.getId()).append(",")
+				.append(inv.getUserName()).append(",")
+				.append(inv.getInventoryName())
+				.append("\n");
+		}
+		return new ByteArrayInputStream(result.toString().getBytes("UTF-8"));
 	}
 }

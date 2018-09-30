@@ -48,6 +48,30 @@ $("#button-clear").click(function() {
 	$('#int_inventory').dataTable().fnClearTable();
 });
 
+$("#button-print").click(function() {
+	$.ajax({
+		url : "./api/inventory-api/print",
+		type : "POST",
+		contentType : 'application/json',
+		xhrFields: {
+            responseType: 'blob'
+        },
+		data : JSON.stringify({
+			"id" : $('#id').val(),
+			"userName" : $('#userName').val(),
+			"inventoryName" : $('#inventoryName').val()
+		}),
+		success : function(result) {
+			var a = document.createElement('a');
+			var url = window.URL.createObjectURL(result);
+            a.href = url;
+            a.download = 'inventory.csv';
+            a.click();
+            window.URL.revokeObjectURL(url);
+		}
+	});
+});
+
 $("#button-add").click(function() {
 	$('#idSave').val("");
 	$('#userNameSave').val("");

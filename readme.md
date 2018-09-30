@@ -20,3 +20,7 @@ d:/wildfly-10.1.0.Final/bin/standalone.bat
 http://localhost:8080/inventory/index.html
 ```
 
+### ขั้นตอนการ deploy
+user:admin
+pass:admin123
+![alt text](readme.img/deploy.gif)
