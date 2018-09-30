@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<html>
+<head>
+<title>ค้นหาสินค้า</title>
+<link rel="stylesheet" href="./bootstrap/4.1.3/css/bootstrap.css">
+<link rel="stylesheet" href="./dataTables/datatables.min.css">
+</head>
+<body>
+	<div class="container">
+		<div class="row justify-content-center">
+			<div class="col-xl">
+				<h2>ใบเก็บข้อมูลทะเบียนเครื่อง</h2>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xl">
+				<label for="id">id</label> <input type="text" class="form-control"
+					id="id">
+			</div>
+			<div class="col-xl">
+				<label for="userName">ชื่อ</label> <input type="text"
+					class="form-control" id="userName">
+			</div>
+			<div class="col-xl">
+				<label for="inventoryName">อุปกรณ์</label> <input type="text"
+					class="form-control" id="inventoryName">
+			</div>
+		</div>
+		<div class="row justify-content-center">
+			<div class="col-xl-2">
+				<button type="button" class="btn btn-default" id="button-search">ค้นหา</button>
+				<button type="button" class="btn btn-default" id="button-clear">ยกเลิก</button>
+			</div>
+		</div>
+		<div class="row justify-content-end">
+			<div class="col-xl-3">
+				<button type="button" class="btn btn-default" id="button-add" data-toggle="modal" data-target="#saveModal">เพิ่ม</button>
+				<button type="button" class="btn btn-default" id="button-edit" data-toggle="modal" data-target="#saveModal">แก้ไข</button>
+				<button type="button" class="btn btn-default" id="button-delete">ลบ</button>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xl">
+				<table id="int_inventory" class="table table-striped table-bordered">
+					<thead class="thead-dark">
+						<tr>
+							<th>id</th>
+							<th>ชื่อ</th>
+							<th>อุปกรณ์</th>
+						</tr>
+					</thead>
+				</table>
+			</div>
+		</div>
+	</div>
+
+	<!-- Modal -->
+	<div class="modal fade" id="saveModal" tabindex="-1" role="dialog"
+		aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel">บันทึก/แก้ไข
+						ข้อมูล</h5>
+					<button type="button" class="close" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<input type="hidden" id="idSave">
+					<div class="row">
+						<div class="col-xl">
+							<label for="userNameSave">ชื่อ</label> <input type="text"
+								class="form-control" id="userNameSave">
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-xl">
+							<label for="inventoryNameSave">อุปกรณ์</label> <input type="text"
+								class="form-control" id="inventoryNameSave">
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary"
+						data-dismiss="modal">ปิด</button>
+					<button type="button" class="btn btn-primary" id="button-save">บันทึก</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	
+</body>
+</html>
+<script src="./jquery/jquery-3.3.1.min.js"></script>
+<script src="./dataTables/datatables.min.js"></script>
+<script src="./bootstrap/4.1.3/js/bootstrap.js"></script>
+<script src="./inventory.js"></script>
