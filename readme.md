@@ -17,6 +17,6 @@ d:/wildfly-10.1.0.Final/bin/standalone.bat
 
 3. เข้าใช้งานโปรแกรม 
 ```
-http://localhost:8080/index.html
+http://localhost:8080/inventory/index.html
 ```
 
